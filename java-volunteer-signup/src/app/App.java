@@ -7,33 +7,16 @@ public class App {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        // ArrayList<Volunteer> allVolunteers = loadVolunteers();
         Volunteer volunteer = getVolunteerInfo();
         input.close();
-        // allVolunteers.add(volunteer);
         saveVolunteer(volunteer);
-        // saveVolunteer(allVolunteers);
     }
 
-    // public static ArrayList<Volunteer> loadVolunteers() {
-    // try {
-    // FileInputStream fileStream = new FileInputStream("volunteers.ser");
-    // ObjectInputStream os = new ObjectInputStream(fileStream);
-    // ArrayList<Volunteer> allVolunteers = (ArrayList<Volunteer>) os.readObject();
-    // os.close();
-    // return allVolunteers;
-    // } catch (IOException | ClassNotFoundException ex) {
-    // return new ArrayList<Volunteer>();
-    // }
-    // }
-
     private static void saveVolunteer(Volunteer volunteer) {
-        // private static void saveVolunteer(ArrayList<Volunteer> allVolunteers) {
         try {
             FileOutputStream fileStream = new FileOutputStream("volunteers.ser");
             ObjectOutputStream os = new ObjectOutputStream(fileStream);
             os.writeObject(volunteer);
-            // os.writeObject(allVolunteers);
             System.out.println("Thank you. We'll get in touch with you as soon as possible!");
             os.close();
         } catch (IOException ex) {
